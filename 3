@@ -1,0 +1,8 @@
+class Solution(object):
+    def numJewelsInStones(self, jewels, stones):
+        jewels_stones = 0 #количество итоговых драгоценных камней
+        for element_1 in jewels: #для элемента драгоценного типа камнeй 
+            for element_2 in stones: #для элемента наших камнeй
+                if element_1 == element_2: #если они равны
+                    jewels_stones += 1 #количество итоговых драгоценных камней увеличивается на 1
+        return jewels_stones # возвращаем количество итоговых драгоценных камней

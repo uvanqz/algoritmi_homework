@@ -1,0 +1,14 @@
+class Solution(object):
+    def countSquares(self, matrix):
+        otvet = 0
+        for r in range(0, len(matrix)):
+            for c in range(0, len(matrix[0])):
+                if (r == 0 or c == 0):
+                    if matrix[r][c] == 1:
+                        otvet += 1
+                elif matrix[r][c] == 1:
+                    matrix[r][c] = min(matrix[r-1][c], min(matrix[r][c-1], matrix[r-1][c-1])) + 1 
+                    #расширяем квадрат путём нахождения минимума из диагонального, левого и верхнего соседа
+                    otvet += matrix[r][c]
+        return otvet
+#Сложность функции O(n*m)

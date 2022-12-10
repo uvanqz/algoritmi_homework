@@ -1,0 +1,18 @@
+class Solution(object):
+    def islandPerimeter(self, grid):
+        perimeter = 0
+
+        if len(grid) == 0:
+            return 0
+
+        for r in range(len(grid)): #для r от 0 до количества элементов grid
+            for c in range(len(grid[r])): #для c от 0 до количества элементов r
+                if grid[r][c] == 1: #если клетка = 1
+                    perimeter += 4 #то периметр увеличиваем на 4 (т к 4 стороны)
+                    if r > 0 and grid[r - 1][c] == 1: #верхняя клетка
+                        perimeter -= 2 
+                    if c > 0 and grid[r][c - 1] == 1: #левая клетка
+                        perimeter -= 2
+        return perimeter
+
+#Сложность функции O(n)

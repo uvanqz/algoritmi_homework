@@ -1,0 +1,13 @@
+class Solution(object):
+    def isPalindrome(self, head):
+        curr = head
+        lst = [] #пустой список
+        while curr:
+            lst.append(curr.val) #добавляем элементы односвязного списка в список lst
+            curr = curr.next
+        if lst == lst[::-1]: #если список с двух сторон читается одинаково
+            return True
+        else:
+            return False
+
+#Сложность функции O(n)

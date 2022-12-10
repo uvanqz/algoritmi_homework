@@ -1,0 +1,10 @@
+class Solution(object):
+    def getDecimalValue(self, head):
+        str_head = ""
+        while head:
+            str_head += str(head.val) #добавление элементов односвязного списка в строку
+            head = head.next
+        str_head_2 = int(str_head, 2) #пребразование двоичной строки в десятичную
+        return str_head_2
+
+#Сложность функции O(n)

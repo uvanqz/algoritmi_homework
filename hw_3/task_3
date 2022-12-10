@@ -1,0 +1,25 @@
+class Solution(object):
+    def averageOfLevels(self, root):
+        stack = [root] #root-начальное значение обхода(корень)
+        result = []
+        
+        while stack: #пока в stack есть элементы
+            l = len(stack) #l = количеству элементов в stack
+            count = 0 #количество элементов на уровне
+            curr_lvl = .0 #сумма элементов на уровне
+            
+            while count < l: 
+                curr = stack.pop(0) #возвращаем значение 0-го элемента и удаляем его из последовательности
+                curr_lvl += curr.val #значение элемента прибавляется к сумме элементов на уровне
+                if curr.left != None: #если у вершины есть левый сосед
+                    stack.append(curr.left) #добавляем его в stack
+                if curr.right != None: #если у вершины есть правый сосед
+                    stack.append(curr.right) #добавляем  его в stack
+                count += 1 #увеличиваем количество элементов на уровне на 1
+            
+            result.append(round(curr_lvl / l, 5)) #добавляем в результат значение суммы элементов на уровне делённое на количество элементов на уровне.
+            #округляем до 5 знаков после запятой
+        
+        return result
+
+#Сложность функции O(n)

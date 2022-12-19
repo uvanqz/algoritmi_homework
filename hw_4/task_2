@@ -1,0 +1,18 @@
+class Solution(object):
+    def getMinimumDifference(self, root):
+        stack=[root] #root-начальное значение обхода(корень)
+        lst =[] #создаём пустой список
+        while stack: #пока в stack есть элементы
+            curr=stack.pop() #возвращаем значение 0-го элемента и удаляем его из последовательности
+            lst.append(curr.val)
+            if curr.left != None: #если у вершины есть левый сосед
+                stack.append(curr.left) #добавляем его в stack
+            if curr.right != None: #если у вершины есть правый сосед
+                stack.append(curr.right) #добавляем его в stack
+        lst.sort() #сортировка по возрастанию
+        result = [] #создаём список, в который будем добавлять разницу между элементами
+        for i in range(0, len(lst) - 1): 
+            result.append(abs(lst[i + 1] - lst[i]))
+        return min(result) #выводим минимальное значение
+
+#Сложность функции O(n)
